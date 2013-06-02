@@ -5,7 +5,7 @@ A progressbar that will always go from 0-100%, but adjusts to the synchronous or
 
 It automatically detects if you are using jQuery and/or requirejs.
 
-Take a look at the the examples in the repo.
+Take a look at the the examples in the repo or at this JSFiddle: http://jsfiddle.net/xeWrF/1/
 
 How to use
 ==========
