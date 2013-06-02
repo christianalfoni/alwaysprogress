@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<style>
+    #progress {
+        display: inline-block;
+        width: 500px;
+        height: 30px;
+        border-radius: 3px;
+        background: #f2f2f2; /* Old browsers */
+        background: -moz-linear-gradient(top, #f2f2f2 0%, #ffffff 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f2f2), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #f2f2f2 0%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #f2f2f2 0%, #ffffff 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #f2f2f2 0%, #ffffff 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #f2f2f2 0%, #ffffff 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+        border: 1px solid #DADADA;
+        -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    #bar {
+        border-radius: 3px;
+        height: 100%;
+        width: 0%;
+        background: #cdeb8e; /* Old browsers */
+        background: -moz-linear-gradient(top, #cdeb8e 0%, #a5c956 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdeb8e), color-stop(100%, #a5c956)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #cdeb8e 0%, #a5c956 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #cdeb8e 0%, #a5c956 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #cdeb8e 0%, #a5c956 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #cdeb8e 0%, #a5c956 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cdeb8e', endColorstr='#a5c956', GradientType=0); /* IE6-9 */
+        text-align: center;
+        color: #FFF;
+        text-shadow: 0 1px 0 #000;
+        line-height: 30px;
+        font-weight: bold;
+        font-family: Helvetica Neue;
+    }
+</style>
+
+<body>
+<div id="progress">
+    <div id="bar"></div>
+</div>
+
+
+<script src="alwaysProgress.js"></script>
+<script>
+    alwaysProgress(document.getElementById('bar'), true).
+            step(function (done) {
+                setTimeout(function () {
+                    console.log('done with step 1');
+                    done();
+                }, 2000);
+            }).
+            step(function (done) {
+                setTimeout(function () {
+                    console.log('done with step 2');
+                    done();
+                }, 4000);
+            }).
+            step(function (done) {
+                setTimeout(function () {
+                    console.log('done with step 3');
+                    done();
+                }, 1000);
+            }).
+            step(function (done) {
+                setTimeout(function () {
+                    console.log('done with step 4');
+                    done();
+                }, 10000);
+            }).
+            finished(function (finishedSteps) {
+                console.log('done with ' + finishedSteps);
+            });
+</script>
+</body>
+</html>
