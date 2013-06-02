@@ -3,6 +3,10 @@ alwaysprogress
 
 A progressbar that will always go from 0-100%, but adjusts to the synchronous or asynchronous steps you have set up.
 
+It automatically detects if you are using jQuery and/or requirejs.
+
+Take a look at the the examples in the repo.
+
 How to use
 ==========
 
