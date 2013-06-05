@@ -5,15 +5,15 @@ A progressbar that will always go from 0-100%, but adjusts to the synchronous or
 
 It automatically detects if you are using jQuery and/or requirejs.
 
-Take a look at the the examples in the repo or at this JSFiddle: http://jsfiddle.net/xeWrF/1/
+Take a look at the the examples in the repo or at this JSFiddle: http://jsfiddle.net/xeWrF/2/
 
 How to use
 ==========
-
+The element should be a block (display: block) element that represents the actual progress bar.
   ```javascript
   <script src="alwaysProgress.js"></script>
   <script>
-    alwaysProgress(document.getElementById('bar'), true). // True sets it to synchronous
+    alwaysProgress(document.getElementById('bar'), true, 20). // True sets it to synchronous and sets a maximum expected loading time for tuning
             step(function (done) {
                 setTimeout(function () {
                     console.log('done with step 1');
