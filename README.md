@@ -13,7 +13,7 @@ The element should be a block (display: block) element that represents the actua
   ```javascript
   <script src="alwaysProgress.js"></script>
   <script>
-    alwaysProgress(document.getElementById('bar'), true, 20). // True sets it to synchronous and sets a maximum expected loading time for tuning
+    alwaysProgress(document.getElementById('bar'), true, 20). // True sets it to synchronous and the number 20 sets a maximum expected loading time for tuning
             step(function (done) {
                 setTimeout(function () {
                     console.log('done with step 1');
