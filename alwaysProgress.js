@@ -1,6 +1,6 @@
-(function (global) {
+(function () {
 
-    var AlwaysProgress = function AlwaysProgress(element, sync) {
+    var AlwaysProgress = function AlwaysProgress(element, sync, expectedMaxSeconds) {
 
             var progressed = 0,
                 stepCallbacks = [],
@@ -23,8 +23,7 @@
                 finishedCallback = function () {
                 },
                 progress = function () {
-                    var newInterval;
-                    newInterval = minInterval * (progressed - (100 / steps * finishedSteps)) * steps;
+                    var newInterval = minInterval * (progressed - (100 / steps * finishedSteps)) * (expectedMaxSeconds ? expectedMaxSeconds / 10 : steps);
                     progressed++;
                     interval = newInterval > minInterval ? newInterval : minInterval;
                     if (progressed > 100) {
@@ -63,11 +62,12 @@
         },
         initAlwaysProgress = function initAlwaysProgress() {
             var element = this === window ? arguments[0] : this,
-                sync = arguments[0] === true || arguments[1] === true;
+                sync = arguments[0] === true || arguments[1] === true,
+                expectedMaxSeconds = arguments.length === 3 ? arguments[2] : arguments[1];
             if (!element) {
                 return console.log('ALWAYSPROGRESS: There is no element here')
             }
-            return new AlwaysProgress(element, sync);
+            return new AlwaysProgress(element, sync, expectedMaxSeconds);
         };
 
     if (typeof jQuery === 'undefined' && typeof define === "function" && define.amd) {

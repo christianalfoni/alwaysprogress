@@ -51,7 +51,7 @@
 
 <script src="alwaysProgress.js"></script>
 <script>
-    alwaysProgress(document.getElementById('bar'), true).
+    alwaysProgress(document.getElementById('bar'), true, 10).
             step(function (done) {
                 setTimeout(function () {
                     console.log('done with step 1');
@@ -69,12 +69,6 @@
                     console.log('done with step 3');
                     done();
                 }, 1000);
-            }).
-            step(function (done) {
-                setTimeout(function () {
-                    console.log('done with step 4');
-                    done();
-                }, 10000);
             }).
             finished(function (finishedSteps) {
                 console.log('done with ' + finishedSteps);

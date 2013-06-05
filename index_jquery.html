@@ -51,7 +51,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="alwaysProgress.js"></script>
 <script>
-    $('#bar').alwaysProgress(true).
+    $('#bar').alwaysProgress(true, 20).
             step(function (done) {
                 setTimeout(function () {
                     console.log('done with step 1');

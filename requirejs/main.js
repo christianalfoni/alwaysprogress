@@ -1,5 +1,5 @@
 require(['../alwaysProgress'], function(alwaysProgress) {
-    alwaysProgress(document.getElementById('bar'), true).
+    alwaysProgress(document.getElementById('bar'), true, 20).
         step(function (done) {
             setTimeout(function () {
                 console.log('done with step 1');
